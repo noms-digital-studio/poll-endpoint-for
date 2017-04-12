@@ -26,9 +26,11 @@ pollEndpointFor(
 ## Configuration Object
 ```
 {
-    url: (string) // full url for the endpoint,
-    initialWait: (int), // time in ms,
-    requestInterval: (int), // time in ms,
+    url: (string), // full url for the endpoint
+    initialWait: (int), // time in ms
+    requestInterval: (int), // time in ms
+    timeoutResponse: (int), // time in ms (sets maximum time to wait for the first byte to arrive from the server)
+    timeoutDeadline: (int), // time in ms (sets a deadline for the entire request (including all redirects) to complete)
     retryCount: (int), // amount of times to retry a request
     onSuccess: (func), // callback called when the endpoint request matches
     onError: (func) // callback called when the endpoint reaches it's count limit without success

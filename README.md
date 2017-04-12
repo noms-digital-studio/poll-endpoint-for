@@ -19,6 +19,7 @@ pollEndpointFor(
         retryCount: 1,
         onSuccess: () => { console.log('I worked!') },
         onError: () => { console.log('I failed') }
+        logger: (...args) => { console.info(...args)}
     }
 );
 ```
@@ -33,7 +34,8 @@ pollEndpointFor(
     timeoutDeadline: (int), // time in ms (sets a deadline for the entire request (including all redirects) to complete)
     retryCount: (int), // amount of times to retry a request
     onSuccess: (func), // callback called when the endpoint request matches
-    onError: (func) // callback called when the endpoint reaches it's count limit without success
+    onError: (func), // callback called when the endpoint reaches it's count limit without success
+    logger: (func) // callback used to override the default logger   
 }
 ```
 

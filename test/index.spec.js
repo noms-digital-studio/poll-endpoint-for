@@ -11,6 +11,41 @@ describe('Poll Endpoint For', () => {
   const buildNumber = 'foo-build-number';
   const gitRef = 'foo-git-reference';
 
+  it('accepts a custom logger', function (done) {
+    this.timeout(3000);
+    const logger = sinon.spy();
+    const scope =
+      nock(url)
+      .get('')
+      .reply(200, {
+        status: 'OK',
+        buildNumber,
+        gitRef,
+      });
+
+    const onSuccess = () => {
+      expect(logger.called).to.equal(true, 'the logger was called');
+      expect(
+        logger.calledWithMatch('GET http://foo-url.com/health')
+      ).to.equal(true, 'the logger was called with the correct arguments');
+      
+      scope.done();
+      done();
+    };
+
+    poolEndpointFor(
+      { gitRef },
+      {
+        initialWait: 15,
+        requestInterval: 10,
+        retryCount: 1,
+        url,
+        onSuccess,
+        logger
+      }
+    );
+  });
+
   it('retries polling the endpoint a failed response for each time', function (done) {
     this.timeout(3000);
 

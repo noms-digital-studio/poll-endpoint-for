@@ -10,7 +10,8 @@ const defaultRequestConfig = {
   initialWait: 30000,
   retryCount: 60,
   timeoutResponse: 5000,
-  timeoutDeadline: 5000
+  timeoutDeadline: 5000,
+  logger: log
 };
 
 
@@ -19,8 +20,8 @@ const poll = (requiredData, config) => {
     return config.onError();
   }
 
-  log(`GET ${config.url}`);
-  log('Polling attempts remaining:', config.retryCount);
+  config.logger(`GET ${config.url}`);
+  config.logger('Polling attempts remaining:', config.retryCount);
 
   return request
     .get(config.url)
@@ -40,12 +41,12 @@ const poll = (requiredData, config) => {
         );
 
       if (error || !response.ok) {
-        log('Got failed response', jsonFormat(error), jsonFormat(response));
+        config.logger('Got failed response', jsonFormat(error), jsonFormat(response));
         return schedulePoll();
       }
 
       if (response.body && isSubset(response.body, requiredData)) {
-        log('Got readable response', jsonFormat(response.body));
+        config.logger('Got readable response', jsonFormat(response.body));
         return config.onSuccess(response.body);
       }
 
@@ -55,7 +56,7 @@ const poll = (requiredData, config) => {
 
 const pollEndpointFor = (requiredData, requestConfig) => {
   const config = Object.assign({}, defaultRequestConfig, requestConfig);
-  log(
+  config.logger(
     'Starting polling for status endpoint, looking for',
     jsonFormat(requiredData)
   );

@@ -1,6 +1,6 @@
 {
   "name": "poll-endpoint-for",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple configurable utility script that continuously polls an endpoint until the response contains/matches all the fields asked for.",
   "main": "src/index.js",
   "repository": "https://github.com/noms-digital-studio/poll-endpoint-for.git",

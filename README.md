@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/noms-digital-studio/poll-endpoint-for.svg?style=svg)](https://circleci.com/gh/noms-digital-studio/poll-endpoint-for)
+
 # Wait for deployment
 A simple configurable utility script that continuously polls an endpoint until the response contains/matches all the fields asked for.
 

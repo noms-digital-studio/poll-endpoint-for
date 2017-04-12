@@ -28,7 +28,7 @@ describe('Poll Endpoint For', () => {
       expect(
         logger.calledWithMatch('GET http://foo-url.com/health')
       ).to.equal(true, 'the logger was called with the correct arguments');
-      
+
       scope.done();
       done();
     };

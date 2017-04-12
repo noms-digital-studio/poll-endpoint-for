@@ -1,9 +1,8 @@
 # Wait for deployment
 A simple configurable utility script that continuously polls an endpoint until the response contains/matches all the fields asked for.
 
-# Usage
 
-## Install
+# Install
 ```
 $ yarn add poll-endpoint-for
 
@@ -12,6 +11,7 @@ $ yarn add poll-endpoint-for
 $ npm install --save poll-endpoint-for
 ```
 
+# Usage
 pollEndpointFor takes two arguments 
 - An object containing the desired key value pairs received from the response(s).
 - A configuration object with with to manage the request cycles

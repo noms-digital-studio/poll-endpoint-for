@@ -3,6 +3,15 @@ A simple configurable utility script that continuously polls an endpoint until t
 
 # Usage
 
+## Install
+```
+$ yarn add poll-endpoint-for
+
+- or -
+
+$ npm install --save poll-endpoint-for
+```
+
 pollEndpointFor takes two arguments 
 - An object containing the desired key value pairs received from the response(s).
 - A configuration object with with to manage the request cycles

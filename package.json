@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A simple configurable utility script that continuously polls an endpoint until the response contains/matches all the fields asked for.",
   "main": "src/index.js",
-  "repository": "git@github.com:noms-digital-studio/poll-endpoint-for",
+  "repository": "https://github.com/noms-digital-studio/poll-endpoint-for.git",
   "author": "Steven Bapaga <sbapaga@gmail.com>",
   "license": "MIT",
   "engines": {

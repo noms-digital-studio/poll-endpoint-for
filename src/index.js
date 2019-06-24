@@ -34,11 +34,10 @@ const poll = (requiredData, config) => {
         retryCount: config.retryCount - 1,
       });
 
-      const schedulePoll =
-        () => setTimeout(
-          () => poll(requiredData, updatedConfig),
-          config.requestInterval
-        );
+      const schedulePoll = () => setTimeout(
+        () => poll(requiredData, updatedConfig),
+        config.requestInterval
+      );
 
       if (error || !response.ok) {
         config.logger('Got failed response', jsonFormat(error), jsonFormat(response));

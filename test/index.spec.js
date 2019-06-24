@@ -14,8 +14,7 @@ describe('Poll Endpoint For', () => {
   it('accepts a custom logger', function (done) {
     this.timeout(3000);
     const logger = sinon.spy();
-    const scope =
-      nock(url)
+    const scope = nock(url)
       .get('')
       .reply(200, {
         status: 'OK',
@@ -50,8 +49,7 @@ describe('Poll Endpoint For', () => {
     this.timeout(3000);
 
     const callback = sinon.spy();
-    const scope =
-      nock(url)
+    const scope = nock(url)
       .get('')
       .times(10)
       .reply(400, {
@@ -84,8 +82,7 @@ describe('Poll Endpoint For', () => {
     this.timeout(10000);
 
     const callback = sinon.spy();
-    const scope =
-      nock(url)
+    const scope = nock(url)
       .get('')
       .times(3)
       .delay(2500)
@@ -121,8 +118,7 @@ describe('Poll Endpoint For', () => {
   it('calls the onSuccess callback if the response matches the required response fields', function (done) {
     this.timeout(2000);
 
-    const scope =
-      nock(url)
+    const scope = nock(url)
       .get('')
       .reply(200, {
         status: 'OK',
@@ -156,8 +152,7 @@ describe('Poll Endpoint For', () => {
   it('calls the onError when the function fails to match the required response fields', function (done) {
     this.timeout(2000);
 
-    const scope =
-      nock(url)
+    const scope = nock(url)
       .get('')
       .reply(200, {
         status: 'OK',
